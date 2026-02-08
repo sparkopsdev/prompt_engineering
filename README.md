@@ -26,6 +26,8 @@ cp .env.example .env
 
 Y en el nuevo archivo `.env` ponemos la OpenAI API Key. Los parámetros de las peticiones también se pueden modificar aquí, aunque el pipeline está probado y explicado con los que vienen escritos por defecto.
 
+La variable `JUPYTER_TOKEN` no se debe modificar.
+
 ## Ejecución en remoto
 
 Para evitar realizar todos los pasos en local, simplemente puedes acceder a [prompting.spark-ops.com](https://prompting.spark-ops.com) para visualizar directamente el resultado de la ejecución (o ejecutarlo de nuevo sin configurar entorno). La clave de acceso está adjunta en la entrega de la plataforma del máster.

@@ -1,0 +1,26 @@
+services:
+  promptengineering:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+    container_name: promptengineering-notebook
+    ports:
+      - "8889:8888"
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN}
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    command: >
+      bash -lc "
+      jupyter lab
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --ServerApp.token=${JUPYTER_TOKEN}
+      --ServerApp.allow_remote_access=True
+      --ServerApp.disable_check_xsrf=True
+      --ServerApp.allow_origin='*'
+      --ServerApp.websocket_compression=False
+      --allow-root
+      "
