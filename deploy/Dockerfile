@@ -12,15 +12,10 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /workspace
 
+COPY requirements.txt requirements.txt
+
 RUN pip install --upgrade pip && \
-    pip install \
-        jupyterlab \
-        ipython \
-        pandas \
-        numpy \
-        python-dotenv \
-        tqdm \
-        requests \
-        matplotlib
+    pip install jupyterlab ipython && \
+    pip install -r requirements.txt
 
 EXPOSE 8888
